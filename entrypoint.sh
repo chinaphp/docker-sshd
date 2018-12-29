@@ -16,5 +16,7 @@ else
     echo "Enabled root-login by password"
 fi
 
+sed -i "s/#GatewayPorts.*/GatewayPorts yes/" /etc/ssh/sshd_config
+
 # do not detach (-D), log to stderr (-e), passthrough other arguments
 exec /usr/sbin/sshd -D -e "$@"
